@@ -9,5 +9,7 @@ def get_random_string(n: int) -> str:
 
 data = [get_random_string(100) for _ in range(1_000_000)]
 
+print(111)
+
 print(len(data))
 print(sys.getsizeof(data))
