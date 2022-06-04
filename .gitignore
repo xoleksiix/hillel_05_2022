@@ -5,4 +5,5 @@
 venv/
 
 # Editors / IDE
-.idea
+.idea/
+.vscode/
