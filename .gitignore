@@ -1,0 +1,8 @@
+#Mac
+.DS
+
+# venv folder
+venv/
+
+# Editors / IDE
+.idea
