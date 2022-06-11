@@ -1,6 +1,6 @@
 team: list[dict] = [
     {"name": "John", "age": 20, "number": 1},
-    {"name": "Mark", "age": 33, "number": 3},
+    {"name": "Mark", "age": 33, "number": 33},
     {"name": "Cavin", "age": 17, "number": 12},
 ]
 
@@ -8,7 +8,7 @@ team: list[dict] = [
 def repr_players(
     players: list[dict], sort_players: bool = False, key: str = "number"
 ) -> None:
-    print("TEAM:")
+    print("\nTEAM:")
     if sort_players:
         for player in sorted(players, key=lambda x: x[key]):
             print(
@@ -47,17 +47,27 @@ def remove_player(players: list[dict], num: int) -> None:
 
 def update_player(players: list[dict], num: int, new_name: str, new_age: int) -> None:
     if num in [player["number"] for player in team]:
-        
+        for player in players:
+            if player["number"] == num:
+                player["name"], player["age"] = new_name, new_age
+                log(message=f"Updating player number {num}")
+    else:
+        log(message=f"No player with number {num}")
 
 
 def main():
-    repr_players(team, True, "age")
+    repr_players(team)
 
-    add_player(num=17, name="Cris", age=31)
+    add_player(num=17, name="Chris", age=31)
     add_player(num=17, name="Bob", age=39)
+
     remove_player(players=team, num=17)
 
-    repr_players(team)
+    update_player(team, 1, "Rick", 21)
+    update_player(team, 77, "Tony", 27)
+
+    repr_players(team, True)
+    repr_players(team, True, "age")
 
 
 if __name__ == "__main__":
