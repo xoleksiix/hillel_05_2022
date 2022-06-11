@@ -12,10 +12,7 @@ team: list[dict] = [
 def repr_players(players: list[dict]) -> None:
     print("TEAM:")
     for player in players:
-        print(
-            f"\t{player['number']} "
-            f"Name: {player['name']}, Age: {player['age']}"
-            )
+        print(f"\t{player['number']} " f"Name: {player['name']}, Age: {player['age']}")
     print("\n")
 
 

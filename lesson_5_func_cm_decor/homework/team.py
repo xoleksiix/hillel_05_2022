@@ -45,8 +45,9 @@ def remove_player(players: list[dict], num: int) -> None:
             log(message=f"Deleting {player_name}")
 
 
-def update_player(num: int) -> None:
-    pass
+def update_player(players: list[dict], num: int, new_name: str, new_age: int) -> None:
+    if num in [player["number"] for player in team]:
+        
 
 
 def main():
