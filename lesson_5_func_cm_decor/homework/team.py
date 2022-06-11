@@ -59,8 +59,8 @@ def main():
     repr_players(team)
 
     add_player(num=17, name="Chris", age=31)
-    add_player(num=17, name="Bob", age=39)   
-    
+    add_player(num=17, name="Bob", age=39)
+
     remove_player(players=team, num=17)
 
     update_player(team, 1, "Rick", 21)
