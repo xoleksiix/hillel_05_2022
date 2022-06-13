@@ -8,7 +8,7 @@ def reverse_string(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         text = func()
-        if type(text) is str:
+        if isinstance(text, str):
             return text[::-1]  # reverse by symbols
             # return " ".join([word for word in text.split()][::-1])  # reverse by words
         return None
