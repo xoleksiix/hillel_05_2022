@@ -44,13 +44,13 @@ def main():
      -  -
       --
     """
-    # не знал как лучше инициализировать
+    # I don't know how best to initialize
 
-    # shape: Shape = get_shape()  # так
+    # shape: Shape = get_shape()
     # random_shape = shape()
     # random_shape.draw()
 
-    shape: Shape = get_shape()()  # или так
+    shape: Shape = get_shape()()
     shape.draw()
 
 
