@@ -27,7 +27,7 @@ def get_shape() -> Shape:
     This function should return any instance of a Shape class
     In our example it is Rectangle or Circle
     """
-    options: list[Shape] = [Rectangle, Circle]
+    options: list[Shape] = [Rectangle(), Circle()]
     return choice(options)
 
 
@@ -44,13 +44,7 @@ def main():
      -  -
       --
     """
-    # I don't know how best to initialize
-
-    # shape: Shape = get_shape()
-    # random_shape = shape()
-    # random_shape.draw()
-
-    shape: Shape = get_shape()()
+    shape: Shape = get_shape()
     shape.draw()
 
 
