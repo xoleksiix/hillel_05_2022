@@ -17,26 +17,15 @@ class Price:
     def __sub__(self, other: Union["Price", int, float]) -> "Price":
         return self.add_or_sub(other, -1)
 
-    def add_or_sub(self, other: Union["Price", int, float], index: bool) -> "Price":
+    def add_or_sub(self, other: Union["Price", int, float], index: int) -> "Price":
         if isinstance(other, (int, float)):
             return Price(self.amount + (index * other), self.currency)
         elif self.currency == other.currency:
             return Price(self.amount + (index * other.amount), self.currency)
         else:
-            amount_1 = (
-                self.amount
-                if self.currency == "USD"
-                else self.amount * rate.get(self.currency)
-            )
-            amount_2 = (
-                other.amount
-                if other.currency == "USD"
-                else other.amount * rate.get(other.currency)
-            )
-            return Price(
-                (amount_1 + (index * amount_2)) * (1 / rate.get(self.currency)),
-                self.currency,
-            )
+            amount_1 = (self.amount if self.currency == "USD" else self.amount * rate.get(self.currency))
+            amount_2 = (other.amount if other.currency == "USD" else other.amount * rate.get(other.currency))
+            return Price((amount_1 + (index * amount_2)) * (1 / rate.get(self.currency)), self.currency)
             #  ans in left currency ^^^ or USD
             # return Price((amount_1 + (index * amount_2)), self.currency)
 
@@ -44,31 +33,35 @@ class Price:
         return Price(self.amount * other, self.currency)
 
 
+def main():
+    a0 = Price(100, "UAH")
+    b0 = 1.5
+    print(a0 * b0)
+
+    a1 = Price(100, "UAH")
+    b1 = 200
+    print(a1 + b1)
+
+    a1 = Price(100, "UAH")
+    b1 = 200
+    print(a1 - b1, "-")
+
+    a2 = Price(111, "UAH")
+    b2 = Price(222, "UAH")
+    print(a2 + b2)
+
+    a3 = Price(100, "UAH")
+    b3 = Price(100, "USD")
+    print(a3 - b3, "!")
+
+    a4 = Price(100, "USD")
+    b4 = Price(100, "UAH")
+    print(a4 + b4)
+
+    a5 = Price(100, "EUR")
+    b5 = Price(100, "UAH")
+    print(a5 + b5)
+
+
 if __name__ == "__main__":
-    # a0 = Price(100, "UAH")
-    # b0 = 1.5
-    # print(a0 * b0)
-
-    # a1 = Price(100, "UAH")
-    # b1 = 200
-    # print(a1 + b1)
-
-    # a1 = Price(100, "UAH")
-    # b1 = 200
-    # print(a1 - b1, "-")
-
-    # a2 = Price(111, "UAH")
-    # b2 = Price(222, "UAH")
-    # print(a2 + b2)
-
-    # a3 = Price(100, "UAH")
-    # b3 = Price(100, "USD")
-    # print(a3 - b3, "!")
-
-    # a4 = Price(100, "USD")
-    # b4 = Price(100, "UAH")
-    # print(a4 + b4)
-
-    # a5 = Price(100, "EUR")
-    # b5 = Price(100, "UAH")
-    # print(a5 + b5)
+    main()
