@@ -23,9 +23,20 @@ class Price:
         elif self.currency == other.currency:
             return Price(self.amount + (index * other.amount), self.currency)
         else:
-            amount_1 = (self.amount if self.currency == "USD" else self.amount * rate.get(self.currency))
-            amount_2 = (other.amount if other.currency == "USD" else other.amount * rate.get(other.currency))
-            return Price((amount_1 + (index * amount_2)) * (1 / rate.get(self.currency)), self.currency)
+            amount_1 = (
+                self.amount
+                if self.currency == "USD"
+                else self.amount * rate.get(self.currency)
+            )
+            amount_2 = (
+                other.amount
+                if other.currency == "USD"
+                else other.amount * rate.get(other.currency)
+            )
+            return Price(
+                (amount_1 + (index * amount_2)) * (1 / rate.get(self.currency)),
+                self.currency,
+            )
             #  ans in left currency ^^^ or USD
             # return Price((amount_1 + (index * amount_2)), self.currency)
 
