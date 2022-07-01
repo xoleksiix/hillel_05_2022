@@ -21,7 +21,12 @@ def main():
 
     threads = [
         Thread(
-            target=launch_rocket, kwargs={"name": i, "countdown": get_random_countdown(), "delay": get_random_delay()}
+            target=launch_rocket,
+            kwargs={
+                "name": i,
+                "countdown": get_random_countdown(),
+                "delay": get_random_delay(),
+            },
         )
         for i in range(1, N + 1)
     ]
