@@ -37,8 +37,6 @@ class Price:
                 (amount_1 + (index * amount_2)) * (1 / rate.get(self.currency)),
                 self.currency,
             )
-            #  ans in left currency ^^^ or USD
-            # return Price((amount_1 + (index * amount_2)), self.currency)
 
     def __mul__(self, other: Union[int, float]) -> "Price":
         return Price(self.amount * other, self.currency)
