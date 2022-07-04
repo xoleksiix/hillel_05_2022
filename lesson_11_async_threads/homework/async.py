@@ -1,12 +1,9 @@
-from datetime import datetime
 import asyncio
-
-print(datetime.now())
 
 
 async def get_primes_amount(num: int) -> int:
     result = 1
-    for i in range(2, num+1):
+    for i in range(2, num + 1):
         result += 1
         for j in range(2, i):
             if i % j == 0:
@@ -19,18 +16,12 @@ async def get_primes_amount(num: int) -> int:
 
 numbers = [40000, 400, 1000000, 700]
 
-tasks = [get_primes_amount(i, ) for i in numbers]
+tasks = [
+    get_primes_amount(
+        i,
+    )
+    for i in numbers
+]
 loop = asyncio.get_event_loop()
 loop.run_until_complete(asyncio.gather(*tasks))
 loop.close()
-
-print(datetime.now())
-
-# for i in numbers:
-#     print(get_primes_amount(i))
-
-# NOTE: Щож. Ця реалізація займає досить багато часу...
-#       Було б чудово, якби люди, які передають менші числа отримували результатми швидше ніж ті, хто передають великі значення
-
-# TODO: Закінчіть цю функцію
-# TODO: Застосуйте асинхронне програмування

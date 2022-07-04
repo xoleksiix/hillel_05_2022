@@ -1,7 +1,6 @@
+import random
 from threading import Thread
 from typing import Union
-import random
-
 
 random_int = []
 
