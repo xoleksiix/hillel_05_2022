@@ -3,6 +3,7 @@
 
 # venv folder
 venv/
+venv_ubuntu/
 
 # Editors / IDE
 .idea/
