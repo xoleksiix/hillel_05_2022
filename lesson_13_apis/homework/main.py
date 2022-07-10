@@ -1,6 +1,7 @@
-import aiohttp
 import asyncio
 import random
+
+import aiohttp
 
 BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
 MAX_POKEMON = 400
